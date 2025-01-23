@@ -14,15 +14,12 @@ pipeline {
         
         stage('Build') {
             steps {
-                // Крок для збірки проекту з Visual Studio
-                // Встановіть правильні шляхи до рішення/проекту та параметри MSBuild
                 bat 'msbuild Sample-Test2.sln /t:Build /p:Configuration=Release'
             }
         }
 
         stage('Test') {
             steps {
-                // Команди для запуску тестів
                 bat "x64\\Debug\\Sample-Test2.exe --gtest_output=xml:test_report.xml"
             }
         }
